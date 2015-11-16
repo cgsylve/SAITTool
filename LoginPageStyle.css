@@ -1,0 +1,48 @@
+html, body{
+  height: 100%;
+  width: 100%;
+  background-color: #333333;
+}
+
+h1, h2{
+  color: #E05151;
+  font-family: 'Droid Sans', sans-serif;
+  
+}
+
+form > h2{
+  font-weight: 100;
+  color: #FFFFFF;
+}
+
+.container{
+  height: 100%;
+  width: 100%;
+  display: -webkit-flex;
+  display:         flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  flex-direction: column; 
+}
+
+.orDiv #orLogin{
+  
+  font-size:45px;
+  color: #E05151;
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+
+#title{
+  font-weight: 700;
+  color: #E05151;
+ 
+  padding-bottom: 55px;
+  font-size: 65px;
+}
+
+
+
+
