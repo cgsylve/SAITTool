@@ -5,28 +5,101 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <code>
+  <script type="text/javascript">
+  $(document).ready(function(){
+  	
+  	var students = [
+  		["Caleb Sylvester", "Seat 2", "In"],
+  		["Logan Janda", "Seat 1", "In"],
+  		["Rebecca Trost", "Back of House", "Out"],
+  		["Mike Stenson", "Team Lead", "In"]
+  	];
+
+  	var reservations = [
+  		["Incident 61711", "LP 2-7", "Caleb"],
+  		["Incident 60223", "DP1", "Mike"]
+  	];
+
+  	var calls = [
+  		["Incident 56112", "Call", "Install SoftChalk"]
+  	];
+  });
+  </script>
+  </code>
 </head>
 <body>
-	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> 	
+	<div class="container" id ="rosterSection">
+		<ul class="nav nav-pills">
+		  <li class="active"><a href="#daily-reservations" data-toggle="pill">Reservations</a></li>
+		  <li><a href="#daily-calls" data-toggle="pill">Calls</a></li>
+		  <li><a href="#current-roster" data-toggle="pill">Current Roster</a></li>
+		</ul>
 
-	<div id="myModal" class="modal fade" role="dialog">
-	  <div class="modal-dialog">
+		<div class="tab-content">
+			<div id="daily-reservations" class="tab-pane fade in active">
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Incident</th>
+								<th>Summary</th>
+								<th>Assigned</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>61711</td>
+								<td>LP 2-7</td>
+								<td>Caleb</td>
+							</tr>
+							<tr>
+								<td>61113</td>
+								<td>DP 1</td>
+								<td>Mike</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
 
-	    <!-- Modal content-->
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4 class="modal-title">Modal Header</h4>
-	      </div>
-	      <div class="modal-body">
-	        <p>Some text in the modal.</p>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	      </div>
-	    </div>
+			<div id="daily-calls" class="tab-pane fade in">
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Incident</th>
+								<th>Summary</th>
+								<th>Assigned</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>54321</td>
+								<td>Install Soft Chalk</td>
+								<td>Caleb</td>
+							</tr>
+							<tr>
+								<td>12345</td>
+								<td>Follow Up For Dana</td>
+								<td>Mike</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
 
-	  </div>
+			<div id="current-roster" class="tab-pane fade in">
+				<p>Caleb Sylvester <span class="badge">Seat 2</span></p>
+				<p>Logan Janda <span class="badge">Back of House</span></p><br>
+			</div>
+		</div>
+	</div>
+	<!-- End Pill Section -->
+	<div class="wrapper" id="reservationSection">
+	</div>
+	<div class="wrapper" id="tonerSection">
 	</div>
 </body>
 </html>
