@@ -43,6 +43,18 @@ form > h2{
   font-size: 65px;
 }
 
+.hide{
+  visibility: hidden;
+}
+
+.show{
+  visibility: visible; 
+}
+
+.alert{
+  padding-top: 20px;
+}
+
 
 
 
