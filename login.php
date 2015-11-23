@@ -1,4 +1,23 @@
 <?php
+session_start();
+
+	function addToCurrent($fname, $lname, $email){
+
+		$username = "root";
+	    $password = "root";
+	    $hostname = "localhost"; 
+
+	        //connection to the database
+	    $conn = mysql_connect($hostname, $username, $password) 
+	    	or die("Unable to connect to MySQL");
+
+
+		$_SESSION['fname']=$fname; 
+		$_SESSION['lname']=$lname; 
+		$_SESSION['email']=$email;
+		return $_SESSION['fname'];
+	}
+
 	function login($email, $pass){
 
 		$username = "root";
@@ -9,8 +28,8 @@
 	    $conn = mysql_connect($hostname, $username, $password) 
 	    	or die("Unable to connect to MySQL");
 	       
-
-		$sql = "SELECT email, pass, approved 
+	    
+		$sql = "SELECT email, pass, approved, fname, lname
 				  FROM login
 		 		  WHERE email = '$email'
 		 		  AND pass = '$pass'";
@@ -27,6 +46,8 @@
 				$user = $row['email'];
 				$pass = $row['pass'];
 				$approved = $row['approved'];
+				$fname = $row['fname'];
+				$lname = $row['lname'];
 
 				
 
@@ -36,7 +57,8 @@
 				}// end if
 
 				else{
-					echo ("Logged in");
+					$msg = addToCurrent($fname, $lname, $email);
+					echo ($msg." logged in");
 				} //end else
 
 				} // end while
@@ -57,6 +79,7 @@
 	    //connection to the database
 	    $conn = mysql_connect($hostname, $username, $password) 
 	    	or die("Unable to connect to MySQL");
+	       
 	       
 	    //echo 'Connected to DB from external<br>';
 

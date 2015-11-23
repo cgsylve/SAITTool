@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="HomePageStyle.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <code>
+  <script type="text/javascript">
+
+ 
+
+  $(document).ready(function(){
+  		$("#deleteAssignments").click(function(event){
+			var checked = "1";
+			event.preventDefault();
+			
+			// $("input:checkbox[name=check]:checked").each(function(){
+			// 	checked.push($(this).val());				
+			// });	
+			
+
+			$.ajax({
+				url: 'testrun.php',
+				type: 'post',
+				data: {'action': 'test', 'list': checked},
+				success: function(data){
+						alert(data);
+						
+					},
+				error: function(xhr, desc, err){
+					alert("fail");
+				}
+
+			});		
+		});
+  });
+  </script>
+  </code>
+</head>
+<body>
+	<button type="submit" id="deleteAssignments">
+</body>
+</html>

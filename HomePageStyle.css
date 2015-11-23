@@ -1,0 +1,52 @@
+html, body{
+	height: 100%; 
+	width: 100%; 
+}
+
+hr{
+	border-color: #595959 !important;
+	width: 75%;
+}
+
+.jumboContainer{
+	background-color: #1e7b1e;
+	
+	padding: 0;
+	margin: 0;
+}
+
+.jumbotron {
+	color: white !important;
+	background-color: transparent !important;
+}
+
+.footer-item{
+	flex-grow: 1;
+	text-align: center;
+	color: white;
+	width: 33%;
+	font-weight: lighter;
+}
+
+.footer-item > h3{
+	font-size: 30px;
+}
+
+
+
+span.glyphicon {
+	padding-top: 20px;
+    font-size: 1.5em;
+}
+
+#jumboWrapper{
+	padding-left: 100px;
+	height: 100%;
+}
+
+.footer{
+	background-color: #222222;
+	font-family: 'Droid Sans', sans-serif;
+	display: flex;
+	height: 30%;
+}

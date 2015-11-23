@@ -32,7 +32,7 @@
                             
                             $("#failApprovalAlert").toggleClass("show"); 
                         }
-                        else if (data =="Logged in"){
+                        else{                          
                             window.location.replace("HomePage.php");
                         }
                      }, // end success function
@@ -44,23 +44,11 @@
             });
 
             $("#createSubmit").click(function(event){
-                
-
                 var fname = $("#fNameInput").val();
-                
-
                 var lname = $("#lNameInput").val();
-                
-
                 var email = $("#emailInputSignup").val();
-               
-
                 var confirmEmail = $("#emailConfirmSignup").val();
-                
-
-                var pass = $("#passwordSignup").val();
-                
-
+                var pass = $("#passwordSignup").val();            
                 var confirmPass = $("#confirmPasswordSignup").val();
                 
                 if(email != confirmEmail){
