@@ -13,6 +13,42 @@
 
   $(document).ready(function(){
 
+  		$("#logoutLink").click(function(){
+  			$("#logoutForm").submit();
+  		});
+
+  		$("#deleteAssignments").on("click", function(event){
+			var checked = new Array();
+			event.preventDefault();
+			
+			$("input:checkbox[name=check]:checked").each(function(){
+				checked.push($(this).val());
+				alert($(this).val());				
+			});	
+			
+
+			$.ajax({
+				url: 'assignments.php',
+				type: 'post',
+				data: {'action': 'delete', 'list': checked},
+				success: function(data){
+						if (data == "Deleted"){
+							alert("Deleted");
+							location.reload();
+						}
+
+						else{
+							alert("Data: " + data);
+						}
+						
+					},
+				error: function(xhr, desc, err){
+					alert("fail");
+				}
+
+			});		
+		});
+
 	  	 $("#createAssignSubmit").click(function(event){
 
 	  	 			var incident = $("#incidentInput").val();
@@ -24,7 +60,7 @@
 	                event.preventDefault();
 	                
 	                $.ajax({
-	                     url: 'roster.php',
+	                     url: 'assignments.php',
 	                     type: 'post', 
 	                     data: {'action': 'createAssignment', 'incident': incident, 'summary': summary, 'name': name, 'email': email, 'type': type},
 	                     success: function(data){
@@ -44,53 +80,13 @@
 	                     }  // end error function
 	                }); // End ajax
 	        });
-
-		$("#deleteAssignments").click(function(event){
-			var checked = "1";
-			event.preventDefault();
-			
-			// $("input:checkbox[name=check]:checked").each(function(){
-			// 	checked.push($(this).val());				
-			// });	
-			
-
-			$.ajax({
-				url: 'roster.php',
-				type: 'post',
-				data: {'action': 'delete', 'list': checked},
-				success: function(data){
-						alert("Data: " + data);
-						
-					},
-				error: function(xhr, desc, err){
-					alert("fail");
-				}
-
-			});		
-		});
-
   });
   </script>
   </code>
 </head>
 <body>
 
-	<?php
-	session_start();
-		$username = "root";
-	    $password = "root";
-	    $hostname = "localhost"; 
-
-	        //connection to the database
-	    $conn = mysql_connect($hostname, $username, $password) 
-	    	or die("Unable to connect to MySQL");
-
-	    mysql_select_db("saitdb");
-	    $sql = "SELECT incident, summary, name, type, email FROM assignments";
-
-	?>
-
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
 		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> 
@@ -104,7 +100,7 @@
 		      <a class="navbar-brand" href="#">
 		      <?php
 		      	session_start();
-		      	echo "Welcome, ".$_SESSION['email'];
+		      	echo "Welcome, ".$_SESSION['fname'];
 		      ?>
 		      </a>
 		    </div>
@@ -114,13 +110,49 @@
 		        
 		        <li><a href="HomePage.php">Home</a></li>
 		        <li class="active"><a href="AssignmentsPage.php">Assignments</a></li> 
-		        <li><a href="#">Toner</a></li> 
+		        <li><a href="TonerPage.php">Toner</a></li> 
 		        <li><a href="#">About</a></li>
+		        <li class="dropdown">
+		        	<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+               			Who's Here?
+               			<span class = "caret"></span>
+            		</a>
+            		<ul class = "dropdown-menu">
+
+            			<?php
+               			session_start();
+               				$username = "root";
+						    $password = "root";
+						    $hostname = "localhost"; 
+
+						        //connection to the database
+						    $conn = mysql_connect($hostname, $username, $password) 
+						    	or die("Unable to connect to MySQL");
+
+						    $sql = "SELECT * FROM loggedin";
+
+						    mysql_select_db("saitdb");
+               			 	$retval = mysql_query($sql, $conn);
+	    					while($row = mysql_fetch_row($retval)){
+	    						echo '<li><a href = "#">'.$row[0].'</a></li>';
+	    					}
+               			?>
+		               
+		            </ul>
+				</li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		      	<li>
+		      		<form id="logoutForm" name="logoutForm" action="logout.php" method="post">
+		      			<p class="navbar-text"><a href="#" id="logoutLink">Log Out</a></p>
+		      		</form>
+		      	</li>
 		      </ul>
 		    </div>
 		   	
 		  </div>
 		</nav>
+
 	<div class="container" id ="rosterSection">
 		<ul class="nav nav-pills">
 		  <li class="active"><a href="#daily-reservations" data-toggle="pill">Reservations</a></li>
@@ -143,6 +175,19 @@
 						<tbody id="resBody">
 							
 							<?php
+
+								session_start();
+								$username = "root";
+							    $password = "root";
+							    $hostname = "localhost"; 
+
+							        //connection to the database
+							    $conn = mysql_connect($hostname, $username, $password) 
+							    	or die("Unable to connect to MySQL");
+
+							    mysql_select_db("saitdb");
+							    $sql = "SELECT incident, summary, name, type, email FROM assignments";
+
 								$retval = mysql_query($sql, $conn);
 								while($row = mysql_fetch_row($retval)){
 									

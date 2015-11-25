@@ -1,5 +1,10 @@
 <?php
-	function addPerson($incident, $summary, $name, $type, $email){
+
+	session_start();
+
+	
+
+	function getCurrent(){
 		$username = "root";
 	    $password = "root";
 	    $hostname = "localhost"; 
@@ -8,16 +13,18 @@
 	    $conn = mysql_connect($hostname, $username, $password) 
 	    	or die("Unable to connect to MySQL");
 
-	    $sql = "INSERT INTO assignments VALUES ('$incident', '$summary', '$name', '$type', '$email')";
+	    $sql = "SELECT * FROM loggedin";
 
 	    mysql_select_db("saitdb");
+            			
+       	$retval = mysql_query($sql, $conn);
 
-	    $retval = mysql_query($sql, $conn)
-	    	or die ("Failed");
-
-	   	echo ("Success");
-	   	mysql_close($conn);
-		
+	   	while($row = mysql_fetch_row($retval)){
+	   		echo '<li><a href = "#">'.$row[0].'</a></li>';
+	   }
+               			
+		mysql_close($conn);               
+	
 	}
 
 	if($_POST['action'] == "createAssignment"){	
@@ -29,4 +36,9 @@
 
 			addPerson($incident, $summary, $name, $type, $email);						
 		}
+
+	else if($_POST['action'] == "getCurrent"){
+		getCurrent();
+	}
+	
 ?>

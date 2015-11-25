@@ -33,6 +33,7 @@
                             $("#failApprovalAlert").toggleClass("show"); 
                         }
                         else{                          
+                            alert(data);
                             window.location.replace("HomePage.php");
                         }
                      }, // end success function

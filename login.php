@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-	function addToCurrent($fname, $lname, $email){
+	function addToCurrent($fname, $lname, $email, $admin){
 
 		$username = "root";
 	    $password = "root";
@@ -11,11 +11,24 @@ session_start();
 	    $conn = mysql_connect($hostname, $username, $password) 
 	    	or die("Unable to connect to MySQL");
 
+	    $sql = "INSERT INTO loggedin VALUES ('$fname')";
+
+		mysql_select_db("saitdb");
+
+		$retval = mysql_query($sql, $conn)
+			or die ("Failed to add to loggedin");
+
+
 
 		$_SESSION['fname']=$fname; 
 		$_SESSION['lname']=$lname; 
 		$_SESSION['email']=$email;
-		return $_SESSION['fname'];
+		$_SESSION['admin']=$admin;
+
+
+		
+
+		return $_SESSION['admin'];
 	}
 
 	function login($email, $pass){
@@ -29,7 +42,7 @@ session_start();
 	    	or die("Unable to connect to MySQL");
 	       
 	    
-		$sql = "SELECT email, pass, approved, fname, lname
+		$sql = "SELECT email, pass, approved, fname, lname, admin
 				  FROM login
 		 		  WHERE email = '$email'
 		 		  AND pass = '$pass'";
@@ -48,6 +61,7 @@ session_start();
 				$approved = $row['approved'];
 				$fname = $row['fname'];
 				$lname = $row['lname'];
+				$admin = $row['admin'];
 
 				
 
@@ -57,8 +71,8 @@ session_start();
 				}// end if
 
 				else{
-					$msg = addToCurrent($fname, $lname, $email);
-					echo ($msg." logged in");
+					$msg = addToCurrent($fname, $lname, $email, $admin);
+					echo ($msg);
 				} //end else
 
 				} // end while
@@ -66,7 +80,9 @@ session_start();
 
 		else{
 			echo ("wrong");
-		}// end else		
+		}// end else
+
+
 		mysql_close($conn);	
 	} //end login()
 
@@ -84,7 +100,7 @@ session_start();
 	    //echo 'Connected to DB from external<br>';
 
 		//$sql = "INSERT INTO login VALUES ('".$fname."', '".$lname."', '".$email."', '".$pass."')";
-		$sql = "INSERT INTO login VALUES ('$fname', '$lname', '$email', '$pass', 'n')";
+		$sql = "INSERT INTO login VALUES ('$fname', '$lname', '$email', '$pass', 'n', 'n')";
 		//echo($sql."<br>");
 		mysql_select_db("saitdb");
 
