@@ -6,17 +6,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+  <title>Assignments</title>
   <code>
   <script type="text/javascript">
-
  
-
   $(document).ready(function(){
-
   		$("#logoutLink").click(function(){
   			$("#logoutForm").submit();
   		});
-
   		$("#deleteAssignments").on("click", function(event){
 			var checked = new Array();
 			event.preventDefault();
@@ -26,7 +23,6 @@
 				alert($(this).val());				
 			});	
 			
-
 			$.ajax({
 				url: 'assignments.php',
 				type: 'post',
@@ -36,7 +32,6 @@
 							alert("Deleted");
 							location.reload();
 						}
-
 						else{
 							alert("Data: " + data);
 						}
@@ -45,12 +40,9 @@
 				error: function(xhr, desc, err){
 					alert("fail");
 				}
-
 			});		
 		});
-
 	  	 $("#createAssignSubmit").click(function(event){
-
 	  	 			var incident = $("#incidentInput").val();
 	  	 			var summary = $("#summaryInput").val();
 	  	 			var name = $("#nameAssigned").val();
@@ -67,7 +59,6 @@
 	                        if(data == "Success"){
 	                            alert("Added");
 	                            location.reload();
-
 	                        }
 	                        
 	                        else{
@@ -84,9 +75,11 @@
   </script>
   </code>
 </head>
-<body>
 
-	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+<body>
+<div class="wrap">
+
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
 		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> 
@@ -124,13 +117,10 @@
                				$username = "root";
 						    $password = "root";
 						    $hostname = "localhost"; 
-
 						        //connection to the database
 						    $conn = mysql_connect($hostname, $username, $password) 
 						    	or die("Unable to connect to MySQL");
-
 						    $sql = "SELECT * FROM loggedin";
-
 						    mysql_select_db("saitdb");
                			 	$retval = mysql_query($sql, $conn);
 	    					while($row = mysql_fetch_row($retval)){
@@ -154,7 +144,7 @@
 		</nav>
 
 	<div class="container" id ="rosterSection">
-		<ul class="nav nav-pills">
+		<ul class="nav nav-pills colored">
 		  <li class="active"><a href="#daily-reservations" data-toggle="pill">Reservations</a></li>
 		  <li><a href="#daily-calls" data-toggle="pill">Calls</a></li>
 		  
@@ -175,19 +165,15 @@
 						<tbody id="resBody">
 							
 							<?php
-
 								session_start();
 								$username = "root";
 							    $password = "root";
 							    $hostname = "localhost"; 
-
 							        //connection to the database
 							    $conn = mysql_connect($hostname, $username, $password) 
 							    	or die("Unable to connect to MySQL");
-
 							    mysql_select_db("saitdb");
 							    $sql = "SELECT incident, summary, name, type, email FROM assignments";
-
 								$retval = mysql_query($sql, $conn);
 								while($row = mysql_fetch_row($retval)){
 									
@@ -246,7 +232,7 @@
 
 	<!-- Trigger the modal with a button -->
 	<form id ="modalForm">
-		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add An Assigmnet</button>
+		<button type="button" class="btn my-btn btn-lg" data-toggle="modal" data-target="#myModal">Add An Assigment</button>
 
 		<!-- Modal -->
 		<div id="myModal" class="modal fade" role="dialog">
@@ -293,9 +279,10 @@
 
 		
 		</div>
-		<button type="button" class="btn btn-info btn-lg" id="deleteAssignments" name="deleteAssignments">Delete Selected Rows</button>
+		<button type="button" class="btn my-btn btn-lg" id="deleteAssignments" name="deleteAssignments">Delete Selected Rows</button>
 	</form>
 
-	
+	</div>
 </body>
+
 </html>

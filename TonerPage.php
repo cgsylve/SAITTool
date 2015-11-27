@@ -138,7 +138,8 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+	<div class="wrap">
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
 		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> 
@@ -250,7 +251,7 @@
 								 	echo "<td>".$row[3]."</td>";
 								 	echo "<td>".$row[4]."</td>";
 								 	echo '<td><label class="checkbox-inline"><input type="checkbox" name="delete" id="delete" value="'.$row[0].'">Delete</label></td>';
-								 	echo '<td><button type="button" id = "'.$row[0].'-row-button"class="btn btn-info" data-toggle="modal" data-target="#editModal">Edit This Toner</button></td>';
+								 	echo '<td><button type="button" id = "'.$row[0].'-row-button"class="btn my-btn" data-toggle="modal" data-target="#editModal">Edit This Toner</button></td>';
 									echo "</tr>";
 								
 								}
@@ -265,7 +266,7 @@
 
 	<!-- Trigger the modal with a button -->
 	<form id ="modalAddForm">
-		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add A Toner</button>
+		<button type="button" class="btn my-btn btn-lg" data-toggle="modal" data-target="#myModal">Add A Toner</button>
 
 		<!-- Modal -->
 		<div id="myModal" class="modal fade" role="dialog">
@@ -313,7 +314,7 @@
 
 		
 		</div>
-		<button type="button" class="btn btn-info btn-lg" id="deleteToner" name="deleteToner">Delete Selected Toner(s)</button>
+		<button type="button" class="btn my-btn btn-lg" id="deleteToner" name="deleteToner">Delete Selected Toner(s)</button>
 	</form>
 
 	<form id ="modalEditForm">
@@ -355,5 +356,6 @@
 		  	</div>
 		</div>
 	</form>
+	</div>
 </body>
 </html>

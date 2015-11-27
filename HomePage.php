@@ -9,14 +9,11 @@
 
   <code>
   <script type="text/javascript">
-
   $(document).ready(function(){
   	$("#logoutLink").click(function(){
   		$("#logoutForm").submit();
   	});
-
   });
-
   </script>
   </code>
 </head>
@@ -27,15 +24,11 @@
 		$username = "root";
 	    $password = "root";
 	    $hostname = "localhost"; 
-
 	        //connection to the database
 	    $conn = mysql_connect($hostname, $username, $password) 
 	    	or die("Unable to connect to MySQL");
-
 	    $sql = "SELECT * FROM loggedin";
-
 	    mysql_select_db("saitdb");
-
 	?>
 
 	
@@ -85,7 +78,6 @@
 
 				<?php
 					session_start();
-
 					if($_SESSION['admin'] == 'y'){
 						echo '<li>
 								<a href = "AdminPage.php">Admin</a>
