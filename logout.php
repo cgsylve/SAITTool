@@ -2,8 +2,8 @@
 	session_start();
 
 		function logout($fname){
-		$username = "root";
-	    $password = "root";
+		$username = "calebsyl_admin";
+	    $password = "rootpass";
 	    $hostname = "localhost"; 
 
 	        //connection to the database
@@ -13,7 +13,7 @@
 	    $sql = "DELETE FROM loggedin 
 	    		WHERE fname='$fname'";
 
-		mysql_select_db("saitdb");
+		mysql_select_db("calebsyl_saitdb");
 
 		$retval = mysql_query($sql, $conn)
 			or die ("Failed to add to loggedin");

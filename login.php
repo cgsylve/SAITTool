@@ -3,8 +3,8 @@ session_start();
 
 	function addToCurrent($fname, $lname, $email, $admin){
 
-		$username = "root";
-	    $password = "root";
+		$username = "calebsyl_admin";
+	    $password = "rootpass";
 	    $hostname = "localhost"; 
 
 	        //connection to the database
@@ -13,7 +13,7 @@ session_start();
 
 	    $sql = "INSERT INTO loggedin VALUES ('$fname')";
 
-		mysql_select_db("saitdb");
+		mysql_select_db("calebsyl_saitdb");
 
 		$retval = mysql_query($sql, $conn)
 			or die ("Failed to add to loggedin");
@@ -33,8 +33,8 @@ session_start();
 
 	function login($email, $pass){
 
-		$username = "root";
-	    $password = "root";
+		$username = "calebsyl_admin";
+	    $password = "rootpass";
 	    $hostname = "localhost"; 
 
 	        //connection to the database
@@ -48,7 +48,7 @@ session_start();
 		 		  AND pass = '$pass'";
 		
 
-		mysql_select_db("saitdb");
+		mysql_select_db("calebsyl_saitdb");
 
 		$retval = mysql_query($sql, $conn)
 			or die("Failed");
@@ -88,8 +88,8 @@ session_start();
 
 	function createUser($fname, $lname, $email, $pass){
 
-		$username = "root";
-	    $password = "root";
+		$username = "calebsyl_admin";
+	    $password = "rootpass";
 	    $hostname = "localhost"; 
 
 	    //connection to the database
@@ -102,7 +102,7 @@ session_start();
 		//$sql = "INSERT INTO login VALUES ('".$fname."', '".$lname."', '".$email."', '".$pass."')";
 		$sql = "INSERT INTO login VALUES ('$fname', '$lname', '$email', '$pass', 'n', 'n')";
 		//echo($sql."<br>");
-		mysql_select_db("saitdb");
+		mysql_select_db("calebsyl_saitdb");
 
 		$retval = mysql_query($sql, $conn)
 			or die("Failed");

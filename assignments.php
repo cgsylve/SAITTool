@@ -1,9 +1,9 @@
 <?php
 	session_start();
 	function createAssignment($incident, $summary, $name, $type, $email){
-		$username = "root";
-	    $password = "root";
-	    $hostname = "localhost"; 
+		$username = "calebsyl_admin";
+	    $password = "rootpass";
+	    $hostname = "localhost";  
 
 	        //connection to the database
 	    $conn = mysql_connect($hostname, $username, $password) 
@@ -11,7 +11,7 @@
 
 	    $sql = "INSERT INTO assignments VALUES ('$incident', '$summary', '$name', '$type', '$email')";
 
-	    mysql_select_db("saitdb");
+	    mysql_select_db("calebsyl_saitdb");
 
 	    $retval = mysql_query($sql, $conn)
 	    	or die ("Failed");
@@ -22,8 +22,8 @@
 	}
 
 	function deleteAssignment($checked){
-		$username = "root";
-	    $password = "root";
+		$username = "calebsyl_admin";
+	    $password = "rootpass";
 	    $hostname = "localhost"; 
 	    $delString = "";
 
@@ -42,7 +42,7 @@
 
 	    $sql = "DELETE FROM assignments WHERE incident IN ($delString)";
 
-	    mysql_select_db("saitdb");
+	    mysql_select_db("calebsyl_saitdb");
 
 	    $retval = mysql_query($sql, $conn);
 

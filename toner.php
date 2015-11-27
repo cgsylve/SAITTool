@@ -3,8 +3,8 @@
 session_start();
 
 	function createToner($name, $usedIn, $color, $count, $needs){
-		$username = "root";
-	    $password = "root";
+		$username = "calebsyl_admin";
+	    $password = "rootpass";
 	    $hostname = "localhost"; 
 
 	        //connection to the database
@@ -13,7 +13,7 @@ session_start();
 
 	    $sql = "INSERT INTO toner VALUES ('$name', '$usedIn', '$color', '$count', '$needs')";
 
-	    mysql_select_db("saitdb");
+	    mysql_select_db("calebsyl_saitdb");
 
 	    $retval = mysql_query($sql, $conn)
 	    	or die ("Failed");
@@ -24,9 +24,9 @@ session_start();
 	}
 
 	function deleteToner($checked){
-		$username = "root";
-	    $password = "root";
-	    $hostname = "localhost"; 
+		$username = "calebsyl_admin";
+	    $password = "rootpass";
+	    $hostname = "localhost";  
 	    $delString = "";
 
 	        //connection to the database
@@ -44,7 +44,7 @@ session_start();
 
 	    $sql = "DELETE FROM toner WHERE name IN ($delString)";
 
-	    mysql_select_db("saitdb");
+	    mysql_select_db("calebsyl_saitdb");
 
 	    $retval = mysql_query($sql, $conn);
 
@@ -56,8 +56,8 @@ session_start();
 
 	function updateToner($name, $usedIn, $color, $count, $needs){
 
-		$username = "root";
-	    $password = "root";
+		$username = "calebsyl_admin";
+	    $password = "rootpass";
 	    $hostname = "localhost"; 
 
 	        //connection to the database
@@ -66,7 +66,7 @@ session_start();
 
 	    $sql = "UPDATE toner SET used_in = '$usedIn', color = '$color', count = '$count', needs_ordered = '$needs' WHERE name = '$name'";
 
-	    mysql_select_db("saitdb");
+	    mysql_select_db("calebsyl_saitdb");
 
 	    $retval = mysql_query($sql);
 

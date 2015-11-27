@@ -21,14 +21,14 @@
 
 	<?php
 		session_start();
-		$username = "root";
-	    $password = "root";
+		$username = "calebsyl_admin";
+	    $password = "rootpass";
 	    $hostname = "localhost"; 
 	        //connection to the database
 	    $conn = mysql_connect($hostname, $username, $password) 
 	    	or die("Unable to connect to MySQL");
 	    $sql = "SELECT * FROM loggedin";
-	    mysql_select_db("saitdb");
+	    mysql_select_db("calebsyl_saitdb");
 	?>
 
 	

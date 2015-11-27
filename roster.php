@@ -5,8 +5,8 @@
 	
 
 	function getCurrent(){
-		$username = "root";
-	    $password = "root";
+		$username = "calebsyl_admin";
+	    $password = "rootpass";
 	    $hostname = "localhost"; 
 
 	        //connection to the database
@@ -15,7 +15,7 @@
 
 	    $sql = "SELECT * FROM loggedin";
 
-	    mysql_select_db("saitdb");
+	    mysql_select_db("calebsyl_saitdb");
             			
        	$retval = mysql_query($sql, $conn);
 
