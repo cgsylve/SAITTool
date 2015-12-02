@@ -1,0 +1,19 @@
+.stickyfooter {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #999999;
+}
+
+div a{
+	text-decoration: none !important;
+	color: #222222;
+	font-weight: bold;
+}
+
+.stickyfooter .container{
+	padding-top: 10px;
+	text-align: center;
+}

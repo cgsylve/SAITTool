@@ -15,6 +15,16 @@ form > h2{
   color: #FFFFFF;
 }
 
+@media (max-width: 1000px){
+    .container h2{
+      font-size: 16pt !important;  
+    }
+
+    .containter .orDiv #orLogin{
+      font-size: 10pt !important;
+    }
+}
+
 .container{
   height: 100%;
   width: 100%;
@@ -54,6 +64,7 @@ form > h2{
 .alert{
   padding-top: 20px;
 }
+
 
 
 

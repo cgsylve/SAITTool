@@ -4,10 +4,12 @@
 	<title>Toner Inventory</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link href="TonerPageStyle.css" rel="stylesheet">
+	<link href="stickyfooter.css" rel="stylesheet">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
   <code>
   <script type="text/javascript">
 
@@ -123,7 +125,7 @@
 	                        }
 	                        
 	                        else{
-	                        	alert("Not Added");
+	                        	
 	                        }
 	                     }, // end success function
 	                     error: function(xhr, desc, err){
@@ -164,7 +166,7 @@
 		        <li><a href="HomePage.php">Home</a></li>
 		        <li><a href="AssignmentsPage.php">Assignments</a></li> 
 		        <li class="active"><a href="TonerPage.php">Toner</a></li> 
-		        <li><a href="#">About</a></li>
+		        <li class="visible-lg-inline"><a href="http://calebsylvester.com">Contact Me</a></li>
 		        <li class="dropdown">
 		        	<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                			Who's Here?
@@ -193,6 +195,14 @@
 		               
 		            </ul>
 				</li>
+				<?php
+					session_start();
+					if($_SESSION['admin'] == 'y'){
+						echo '<li>
+								<a href = "AdminPage.php">Admin</a>
+							</li>';
+					}
+				?>
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
 		      	<li>
@@ -265,8 +275,10 @@
 	<!-- End Pill Section -->
 
 	<!-- Trigger the modal with a button -->
+	<button type="button" class="btn my-btn btn-lg btn-block" data-toggle="modal" data-target="#myModal">Add A Toner</button>
+	<button type="button" class="btn my-btn btn-lg btn-block" id="deleteToner" name="deleteToner">Delete Selected Toner(s)</button>
 	<form id ="modalAddForm">
-		<button type="button" class="btn my-btn btn-lg" data-toggle="modal" data-target="#myModal">Add A Toner</button>
+		
 
 		<!-- Modal -->
 		<div id="myModal" class="modal fade" role="dialog">
@@ -314,7 +326,7 @@
 
 		
 		</div>
-		<button type="button" class="btn my-btn btn-lg" id="deleteToner" name="deleteToner">Delete Selected Toner(s)</button>
+		
 	</form>
 
 	<form id ="modalEditForm">
@@ -355,7 +367,27 @@
 
 		  	</div>
 		</div>
+		</div>
 	</form>
 	</div>
+	</div>
+
+	<footer class="stickyfooter visible-lg-block">
+      <div class="container">
+	      <div class="row">
+	      	<div class="col-lg-4">
+	      		
+	        		<i class="fa fa-github-square" id="GH"></i><p class="text-muted"><a href="http://github.com/cgsylve">GitHub</a></p>
+	        	
+	        </div>
+	        <div class="col-lg-4">
+	        	<i class="fa fa-twitter-square" id="TW"></i><p class="text-muted"><a href="http://twitter.com/calebsylves">Twitter</a></p>
+	        </div>
+	        <div class="col-lg-4">
+	        	<i class="fa fa-facebook-square" id="FB"></i><p class="text-muted"><a href="http://facebook.com/caleb.sylvester.3">Facebook</a></p>
+	        </div>
+	      </div>
+      </div>
+    </footer>
 </body>
 </html>

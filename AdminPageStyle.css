@@ -1,0 +1,46 @@
+body, html{
+	height:100%;
+	width: 100%;
+	
+}
+
+body{
+	background-color: #222222 !important;
+}
+
+form > p > a {
+	text-decoration: none;
+	color: #999999;
+}
+
+form > p > a:hover{
+	text-decoration: none;
+	color: #999999;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #aa7243;
+}
+
+.wrap{
+
+	height: 100%;
+	background: #1e7b1e;
+	color: white;
+
+}
+
+.my-btn{
+	background-color: #222222;
+	color: white;
+}
+
+.my-btn:hover{
+	background-color: #999999;
+
+}
+
+#approveSection{
+	padding-top: 80px;
+}
+

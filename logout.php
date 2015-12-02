@@ -58,6 +58,17 @@
 }
 
 	</style>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var delay = 2000; //Your delay in milliseconds
+
+			setTimeout(function(){ 
+				window.location = "http://calebsylvester.com/SAITTool/LoginPage.php"; 
+			}, delay);
+		});
+	</script>
+	
 </head>
 <body>
 

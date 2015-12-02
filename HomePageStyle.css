@@ -3,12 +3,20 @@ html, body{
 	width: 100%; 
 }
 
+html{
+	min-height: 100%;
+}
+body{
+	margin-bottom: 60px;
+	background-color: #222222 !important;
+}
+
 .footer-hr{
 	border-color: #595959 !important;
 	width: 75%;
 }
 
-@media(max-width: 700px) {
+@media(max-width: 900px) {
   h3 {
     font-size: 12pt !important;
   }
@@ -17,6 +25,23 @@ html, body{
 	padding-top: 20px;
     font-size: 1em;
 	}
+
+	.jumbotron h1{
+		font-size: 16pt;
+	}
+
+	.jumbotron h2{
+		font-size: 16pt;
+	}
+
+	.jumbotron p{
+		font-size: 12pt !important;
+	}
+
+	.jumbotron{
+		margin-right: 3em;
+	}
+		
 }
 
 .jumbotron > p > a{

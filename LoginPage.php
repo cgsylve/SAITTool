@@ -3,10 +3,12 @@
 <head>
 	<title>Login to the SAIT web tool</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap CSS CDN -->
-	<link href="LoginPageStyle.css" rel="stylesheet">
+	 <link href="LoginPageStyle.css" rel="stylesheet">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> <!-- jQuery 1.11 CDN -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <!-- Bootstrap JS CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> <!-- jQuery 1.11 CDN -->
-
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   
     <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
 
@@ -33,7 +35,8 @@
                             $("#failApprovalAlert").toggleClass("show"); 
                         }
                         else{                          
-                            alert(data);
+                           
+
                             window.location.replace("HomePage.php");
                         }
                      }, // end success function
@@ -70,15 +73,19 @@
                     success: function(data){
                         if(data == "Failed"){
                             $("#failAlert").toggleClass("show");
-                            alert("Failed to enter");
+                           
                         }
                         else if(data == "Success"){
                             $("#successAlert").toggleClass("show");
-                            alert("Success");
+                            var delay = 2000; //Your delay in milliseconds
+
+                            setTimeout(function(){ 
+                                window.location = "http://calebsylvester.com/SAITTool/LoginPage.php"; 
+                            }, delay);
                         }
 
                         else {
-                            alert("Neither");
+                            
                         }
                     }, //end success
                     error: function(data){
@@ -97,8 +104,12 @@
 <body>
 
 	<div class="container">
+        <div class="row">
+            
+    	   <h2 id="title">Welcome to the SAIT Online Tool</h2>
+           
+        </div>
 
-	   <h2 id="title">Welcome to the SAIT Online Tool</h2>
 	
 	
       <form class="form-signin" id="signin">
@@ -107,7 +118,7 @@
         <input type="email" id="inputEmail" name = "inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" id="loginSubmit" name="loginSubmit">Sign in</button> 
+        <button class="btn btn-lg btn-primary btn-block" type="button" id="loginSubmit" name="loginSubmit">Sign in</button> 
     </form> <!-- END Sign In Form -->
     
     <div class="orDiv">
@@ -116,13 +127,13 @@
     
     <form class="form-create-account">
     	<h2 class="form-create-heading"> Create Account </h2>
-    	<input type="text" id="fNameInput" name="fNameInput" class="form-control" placeholder="First Name">
-    	<input type="text" id="lNameInput" name="lNameInput" class="form-control" placeholder="Last Name">
-    	<input type="email" id="emailInputSignup" name="emailInputSignup" class="form-control" placeholder="Email">
-    	<input type="email" id="emailConfirmSignup" class="form-control" placeholder="Confirm Email">
-    	<input type="password" id="passwordSignup" name="passwordSignup" class="form-control" placeholder="Password">
-    	<input type="password" id="confirmPasswordSignup" class="form-control" placeholder="Confirm Password">
-    	<button class="btn btn-lg btn-primary btn-block" type="submit" id="createSubmit" name="createSubmit">Create</button>
+    	<input type="text" id="fNameInput" name="fNameInput" class="form-control" placeholder="First Name" required>
+    	<input type="text" id="lNameInput" name="lNameInput" class="form-control" placeholder="Last Name" required>
+    	<input type="email" id="emailInputSignup" name="emailInputSignup" class="form-control" placeholder="Email" required>
+    	<input type="email" id="emailConfirmSignup" class="form-control" placeholder="Confirm Email" required>
+    	<input type="password" id="passwordSignup" name="passwordSignup" class="form-control" placeholder="Password" required>
+    	<input type="password" id="confirmPasswordSignup" class="form-control" placeholder="Confirm Password" required>
+    	<button class="btn btn-lg btn-primary btn-block" type="button" id="createSubmit" name="createSubmit">Create</button>
     </form> <!-- END Create Account Form -->
     <br>
 

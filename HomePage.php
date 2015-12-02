@@ -2,10 +2,12 @@
 <html>
 <head>
 	<link href="HomePageStyle.css" rel="stylesheet">
+	<link href="stickyfooter.css" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> <!-- jQuery 1.11 CDN -->
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> <!-- Bootstrap JS CDN -->
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
   <code>
   <script type="text/javascript">
@@ -57,7 +59,7 @@
 		        <li class="active"><a href="HomePage.php">Home</a></li>
 		        <li><a href="AssignmentsPage.php">Assignments</a></li> 
 		        <li><a href="TonerPage.php">Toner</a></li> 
-		        <li><a href="#">About</a></li>
+		        <li class="visible-lg-inline"><a href="http://calebsylvester.com">Contact Me</a></li>
 		        <li class="dropdown">
 		        	<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                			Who's Here?
@@ -117,35 +119,43 @@
 					
 			
 				<div class="row">
-				<div class="footer">
+					<div class="footer">
 
-					<div class="footer-item col-xs-4">
-						<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
-						<h3>Efficiency</h3>
-						<hr class="footer-hr">
-						<p>Instead of going to multiple places to check things like toner inventory and reservations scheduled
-						for later today, you can just use the handy tools that this site has! This means that you can spend less
-						time digging through work groups and folders, and more time focused on resolving incidents.
-					</div>
-					<div class="footer-item col-xs-4">
-						<span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
-						<h3>Information</h3>
-						<hr class="footer-hr">
-						<p>This is a one-stop-shop for many repetitive tasks that the help desk has to do each day. Keeping information
-						in a centralized place not only makes things more efficient, but it means it is easier to do the mundane tasks 
-						and less mistakes will be made. This leds to the all-imporant accuracy of information.
-					</div>
-					<div class="footer-item col-xs-4">
-						<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
-						<h3>Responsiveness</h3>
-						<hr class="footer-hr">
-						<p>This website was coded using Twitter Bootstrap. This means that the site
-						works just as well on a mobile device or smaller screen as it does on a normal monitor. </p>
-					</div>
-				</div>	
+							<div class="footer-item col-xs-4">
+								<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+								<h3>Efficiency</h3>
+								<div class="hidden-xs hidden-sm">
+									<hr class="footer-hr">
+									<p>Instead of going to multiple places to check things like toner inventory and reservations scheduled
+									for later today, you can just use the handy tools that this site has! This means that you can spend less
+									time digging through work groups and folders, and more time focused on resolving incidents.</p>
+								</div>
+							</div>
+							<div class="footer-item col-xs-4">
+								<span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
+								<h3>Information</h3>
+								<div class="hidden-xs hidden-sm">
+									<hr class="footer-hr">
+									<p>This is a one-stop-shop for many repetitive tasks that the help desk has to do each day. Keeping information
+									in a centralized place not only makes things more efficient, but it means it is easier to do the mundane tasks 
+									and less mistakes will be made. This leds to the all-imporant accuracy of information.</p>
+								</div>
+							</div>
+							<div class="footer-item col-xs-4">
+								<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+								<h3>Responsiveness</h3>
+								<div class="hidden-xs hidden-sm">
+									<hr class="footer-hr">
+									<p>This website was coded using Twitter Bootstrap. This means that the site
+									works just as well on a mobile device or smaller screen as it does on a normal monitor. </p>
+								</div>
+							
+							</div>
+						</div>
+					</div>	
+				
 			</div>	
 		</div>
-	</div>
 
 </body>
 </html>
